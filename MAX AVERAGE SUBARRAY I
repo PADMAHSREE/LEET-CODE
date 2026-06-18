@@ -1,0 +1,9 @@
+class Solution(object):
+    def findMaxAverage(self, nums, k):
+        current_window=sum(nums[:k])
+        max_sum=current_window
+        for i in range(k,len(nums)):
+            current_window=current_window+nums[i]-nums[i-k]
+            if current_window > max_sum:
+                max_sum=current_window
+        return float(max_sum)/k
